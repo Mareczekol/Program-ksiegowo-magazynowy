@@ -59,3 +59,14 @@ while True:
             actions.append(("zakup", product_name, price, quantity))
             print("Zakup wykonany")
 
+
+# wyswietlanie stanu konta
+    elif command == "konto":
+        print(f"Stan konta: {account}")
+# komenda lista
+    elif command == "lista":
+        print("Stan magazynu:")
+        # wyświetlanie stanu magazynu
+        for product, details in magazyn.items():
+            print(f"Produkt: {product}, Cena: {details[0]}, "
+                  f"Ilosc: {details[1]}")
