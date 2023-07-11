@@ -87,7 +87,7 @@ while True:
         start = int(start) if start else 0
         # idx koncowy
         end = int(end) if end else len(actions)
-        # jesli uzytkownik poda odx spoza zakresu
+        # jesli uzytkownik poda idx spoza zakresu
         if start < 0 or end > len(actions):
             print("Zakres poza granicami. Dostępne akcje: ", len(actions))
         else:
