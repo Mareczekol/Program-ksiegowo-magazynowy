@@ -23,6 +23,7 @@ while True:
             account += amount
             actions.append(("saldo", amount))
             print("Saldo zaktualizowane")
+
 # komenda sprzedaż
     elif command == "sprzedaz":
         product_name = input("Wprowadz nazwe produktu: ")
@@ -39,4 +40,22 @@ while True:
             magazyn[product_name][1] -= quantity
             actions.append(("sprzedaz", product_name, price, quantity))
             print("Sprzedaz wykonana")
+
+# komenda zakup
+    elif command == "zakup":
+        product_name = input("Wprowadz nazwe produktu: ")
+        price = int(input("Wprowadz cene: "))
+        quantity = int(input("Wprowadz ilosc: "))
+        if price <= 0 or quantity <= 0:
+            print("Nieprawidłowa cena lub ilosc")
+        elif account < price * quantity:
+            print("Nie wystarczające środki na koncie")
+        else:
+            if product_name not in magazyn:
+                magazyn[product_name] = [price, quantity]
+            else:
+                magazyn[product_name][1] += quantity
+            account -= price * quantity
+            actions.append(("zakup", product_name, price, quantity))
+            print("Zakup wykonany")
 
